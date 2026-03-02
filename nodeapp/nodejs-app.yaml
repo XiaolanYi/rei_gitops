@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: my-node-app:latest # Use the image name you built
-          imagePullPolicy: Never # Tell Kubernetes to use the local image
+          image: ghcr.io/xiaolanyi/rei_web_test:a7ccc28dec65f47c62a590e9378b281e5d2043bf
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           env:
