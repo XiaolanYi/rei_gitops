@@ -2,6 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: node-app-deployment
+  annotations:
+    # Tell Image Updater which image to watch
+    argocd-image-updater.argoproj.io/image-list: node-app=ghcr.io/XiaolanYi/rei_web_test
+    # Update strategy (recommended)
+    argocd-image-updater.argoproj.io/node-app.update-strategy: semver
+    # Optional: only update to stable versions
+    # argocd-image-updater.argoproj.io/node-app.semver-constraint: ">= 1.0.0"
   namespace: postgres
   labels:
     app: node-app
